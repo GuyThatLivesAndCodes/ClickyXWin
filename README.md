@@ -17,8 +17,21 @@ ClickyXWin's user interface, affectionately known as the "Buddy," is engineered 
 To truly understand your context, ClickyXWin is equipped with advanced perception capabilities, allowing it to "see what the user sees" through high-frequency screen analysis.
 
 *   **Screen Capture**: Leverages the **Windows Graphics Capture API** (available since Windows 10, version 1803) for low-latency, high-frame-rate capture of active windows or the entire desktop [1].
-*   **OCR & Layout Analysis**: Integrates **Windows.Media.Ocr** for local text extraction and can send compressed frames to a Vision LLM (e.g., GPT-4o) for deeper semantic understanding of screen content.
+*   **OCR & Layout Analysis**: Integrates **Windows.Media.Ocr** for local text extraction or can send compressed frames to a configurable Vision LLM for semantic understanding.
 *   **Active Window Tracking**: Continuously monitors the active application using `GetForegroundWindow` and `GetWindowText` to maintain metadata about your current operational context (e.g., "User is in Figma," "User is in VS Code").
+
+### Configurable Intelligence: Cloud and Local LLM Support
+
+ClickyXWin is designed with a flexible **Intelligence Layer** that allows users to choose their preferred Large Language Model (LLM) for processing visual/textual context and generating responses or agentic plans. This ensures adaptability and caters to various performance, privacy, and cost requirements.
+
+*   **Cloud-Based LLMs**: Seamlessly integrate with leading cloud AI services for powerful, scalable intelligence:
+    *   **OpenAI (GPT Series)**: Access to models like GPT-4o for advanced reasoning and understanding.
+    *   **Anthropic (Claude Series)**: Leverage Claude 3.5 for robust conversational AI and contextual awareness.
+    *   **xAI**: Future-proofing for integration with emerging high-performance models from xAI.
+
+*   **Local AI Solutions**: For enhanced privacy, offline capability, or specific hardware optimizations, ClickyXWin supports local LLM inference engines:
+    *   **Ollama**: Integrate with Ollama to run a variety of open-source models directly on your Windows machine.
+    *   **LM Studio**: Utilize LM Studio for easy management and execution of local LLMs, providing a native, on-device AI experience.
 
 ### The "Clicky Agent": Intelligent Background Execution
 
@@ -38,7 +51,7 @@ ClickyXWin is built upon a layered architecture designed for performance and mod
 | :--- | :--- | :--- |
 | **UI Layer** | WPF / WinUI 3 | Renders the "Buddy" (cursor-following widget) and handles user interaction. |
 | **Perception Layer** | Windows Graphics Capture / OCR | Captures screen content and extracts text/context from the active window. |
-| **Intelligence Layer** | LLM (GPT-4o / Claude 3.5) | Processes visual/textual context and generates responses or agentic plans. |
+| **Intelligence Layer** | Configurable LLM (Cloud/Local) | Processes visual/textual context and generates responses or agentic plans. |
 | **Action Layer** | UI Automation / PowerShell | Executes system-level tasks (file management, app control, web research). |
 
 ## Implementation Roadmap for LLMs
